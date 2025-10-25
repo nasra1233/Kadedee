@@ -1,0 +1,273 @@
+╔════════════════════════════════════════════════════════════════════╗
+║                        KADEDEE SECURITY SCANNER                    ║
+║                         INSTALLATION GUIDE                         ║
+╚════════════════════════════════════════════════════════════════════╝
+
+WELCOME!
+--------
+Kadedee is a comprehensive CLI security scanner with AI-powered 
+vulnerability detection. This guide will help you install and run it.
+
+SYSTEM REQUIREMENTS
+-------------------
+✓ Node.js 18 or higher
+✓ 2GB RAM minimum
+✓ 500MB disk space
+✓ Internet connection (for initial install only)
+
+QUICK INSTALLATION (2 minutes)
+-------------------------------
+
+Step 1: Run Installation Script
+--------------------------------
+./INSTALL.sh
+
+This will:
+- Check Node.js version
+- Install all dependencies (14 packages)
+- Configure the CLI
+- Initialize the database
+- Create necessary directories
+
+Step 2: Verify Installation
+----------------------------
+node cli/index.js --help
+
+You should see the Kadedee banner and help menu.
+
+MANUAL INSTALLATION (if automatic fails)
+-----------------------------------------
+
+Step 1: Install Dependencies
+-----------------------------
+npm install \
+  commander@^11.1.0 \
+  chalk@^5.3.0 \
+  ora@^7.0.1 \
+  puppeteer@^21.5.2 \
+  cheerio@^1.0.0-rc.12 \
+  axios@^1.6.2 \
+  better-sqlite3@^9.2.2 \
+  cli-table3@^0.6.3 \
+  inquirer@^9.2.12 \
+  figlet@^1.7.0 \
+  gradient-string@^2.0.2 \
+  @tensorflow/tfjs-node@^4.15.0 \
+  natural@^6.10.4 \
+  compromise@^14.10.0
+
+Step 2: Make CLI Executable
+----------------------------
+chmod +x cli/index.js
+
+Step 3: Create Directories
+---------------------------
+mkdir -p kadedee-reports
+mkdir -p kadedee-data
+mkdir -p kadedee-models
+
+Step 4: Initialize Database
+----------------------------
+node cli/index.js init
+
+YOUR FIRST SCAN
+---------------
+
+Run this command to test Kadedee:
+
+node cli/index.js scan http://testphp.vulnweb.com
+
+This will:
+1. Crawl the target website
+2. Test for 13 types of vulnerabilities
+3. Capture screenshots of issues
+4. Generate 3 report formats
+5. Save results to database
+
+VIEWING RESULTS
+---------------
+
+After scanning, check these locations:
+
+1. HTML Report (Visual Dashboard):
+   open kadedee-reports/report.html
+
+2. JSON Report (Machine-Readable):
+   cat kadedee-reports/report.json
+
+3. Text Report (Terminal-Friendly):
+   cat kadedee-reports/report.txt
+
+4. Screenshots (Evidence):
+   ls kadedee-reports/screenshots/
+
+COMMON COMMANDS
+---------------
+
+# Initialize database
+node cli/index.js init
+
+# Basic scan
+node cli/index.js scan <url>
+
+# Scan with AI analysis
+node cli/index.js scan <url> --ai-analysis
+
+# Deep scan (more thorough)
+node cli/index.js scan <url> --depth 5
+
+# Fast scan (less thorough)
+node cli/index.js scan <url> --depth 2
+
+# Disable screenshots
+node cli/index.js scan <url> --no-screenshots
+
+# Custom output directory
+node cli/index.js scan <url> --output ./my-reports
+
+# More threads (faster)
+node cli/index.js scan <url> --threads 10
+
+# View scan history
+node cli/index.js report --list
+
+# View specific scan
+node cli/index.js report --id 1
+
+# Get help
+node cli/index.js --help
+node cli/index.js scan --help
+node cli/index.js report --help
+
+TROUBLESHOOTING
+---------------
+
+Problem: "Cannot find module 'commander'"
+Solution: Run ./INSTALL.sh again
+
+Problem: Puppeteer/Chromium errors
+Solution: Install Chromium browser
+  Ubuntu/Debian: sudo apt-get install chromium-browser
+  macOS: brew install chromium
+
+Problem: Database locked
+Solution: Remove lock files
+  rm kadedee-data/kadedee.db-wal
+  rm kadedee-data/kadedee.db-shm
+
+Problem: Out of memory
+Solution: Increase Node.js memory
+  NODE_OPTIONS="--max-old-space-size=4096" node cli/index.js scan <url>
+
+Problem: Slow scans
+Solution: Reduce depth or increase threads
+  node cli/index.js scan <url> --depth 2 --threads 10
+
+UNDERSTANDING RESULTS
+---------------------
+
+Severity Levels:
+- CRITICAL: Immediate action required (RCE, SQLi)
+- HIGH: Serious security risk (XSS, SSRF)
+- MEDIUM: Moderate risk (CSRF, Open Redirect)
+- LOW: Security improvement (Missing headers)
+
+Vulnerability Types (13 Total):
+1. SQL Injection - Database attacks
+2. XSS - JavaScript injection
+3. SSRF - Server-side request forgery
+4. XXE - XML external entity attacks
+5. SSTI - Template injection
+6. Command Injection - OS command execution
+7. LFI - Local file inclusion
+8. Open Redirect - Phishing vector
+9. IDOR - Broken access control
+10. CSRF - Cross-site request forgery
+11. Missing Security Headers - Configuration issues
+12. CORS Misconfiguration - Cross-origin issues
+13. Race Conditions - Timing vulnerabilities
+
+FEATURES
+--------
+
+✓ 13 vulnerability types detected
+✓ Advanced web crawler
+✓ Screenshot evidence capture
+✓ AI-powered analysis
+✓ Machine learning pattern recognition
+✓ Self-learning capability
+✓ SQLite database for history
+✓ 3 report formats (JSON/HTML/TXT)
+✓ Beautiful CLI interface
+✓ Detailed reproduction steps
+✓ cURL commands for verification
+✓ CWE and OWASP mappings
+✓ Compliance impact assessment
+
+IMPORTANT SECURITY NOTICE
+--------------------------
+
+⚠️  ONLY scan systems you own or have permission to test!
+
+Legal uses:
+✓ Your own websites
+✓ Your company's applications (with authorization)
+✓ Lab/test environments
+✓ Authorized penetration tests
+
+Illegal uses:
+✗ Random websites on the internet
+✗ Competitors' sites
+✗ Any system without explicit permission
+
+Unauthorized scanning is ILLEGAL and can result in:
+- Criminal prosecution
+- Civil lawsuits
+- Fines and penalties
+
+DOCUMENTATION
+-------------
+
+Read these files for more information:
+
+1. START-HERE.md - Quick overview
+2. QUICKSTART.md - Detailed quick start
+3. README-KADEDEE.md - Complete documentation
+4. KADEDEE-SUMMARY.md - Technical architecture
+5. PROJECT-STATUS.md - Feature checklist
+6. FILE-LIST.txt - File structure
+
+NEXT STEPS
+----------
+
+1. ✓ Install dependencies: ./INSTALL.sh
+2. ✓ Initialize database: node cli/index.js init
+3. ✓ Run first scan: node cli/index.js scan <url>
+4. ✓ View HTML report: open kadedee-reports/report.html
+5. ✓ Read documentation: README-KADEDEE.md
+
+GETTING HELP
+------------
+
+For command help:
+  node cli/index.js --help
+  node cli/index.js scan --help
+  node cli/index.js report --help
+
+For detailed documentation:
+  Read README-KADEDEE.md
+
+For technical details:
+  Read KADEDEE-SUMMARY.md
+
+VERSION & STATUS
+----------------
+
+Version: 1.0.0
+Status: Production Ready
+Date: 2025-10-09
+
+╔════════════════════════════════════════════════════════════════════╗
+║  Ready to scan! Run ./INSTALL.sh to begin.                        ║
+║  Remember: Only scan systems you own or have permission to test.  ║
+╚════════════════════════════════════════════════════════════════════╝

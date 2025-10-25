@@ -1,0 +1,38 @@
+{
+  "name": "kadedee",
+  "version": "1.0.0",
+  "description": "Comprehensive defensive security scanner with AI-powered vulnerability detection",
+  "type": "module",
+  "main": "cli/index.js",
+  "bin": {
+    "kadedee": "./cli/index.js"
+  },
+  "scripts": {
+    "start": "node cli/index.js",
+    "scan": "node cli/index.js scan",
+    "build": "echo 'CLI tool ready'"
+  },
+  "keywords": [
+    "security",
+    "vulnerability-scanner",
+    "penetration-testing",
+    "defensive-security",
+    "ai-powered"
+  ],
+  "dependencies": {
+    "commander": "^11.1.0",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.1",
+    "puppeteer": "^21.5.2",
+    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.6.2",
+    "better-sqlite3": "^9.2.2",
+    "cli-table3": "^0.6.3",
+    "inquirer": "^9.2.12",
+    "figlet": "^1.7.0",
+    "gradient-string": "^2.0.2",
+    "@tensorflow/tfjs-node": "^4.15.0",
+    "natural": "^6.10.4",
+    "compromise": "^14.10.0"
+  }
+}

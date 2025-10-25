@@ -1,0 +1,111 @@
+KADEDEE SECURITY SCANNER - FILE STRUCTURE
+==========================================
+
+PROJECT ROOT
+├── cli/                                    # Main CLI application
+│   ├── index.js                           # CLI entry point (Commander.js)
+│   ├── scanner/                           # Scanning engine
+│   │   ├── vulnerability-scanner.js       # Main scanner orchestrator
+│   │   ├── crawler.js                     # Web crawler & endpoint discovery
+│   │   ├── screenshot-capture.js          # Puppeteer screenshot system
+│   │   └── detectors/                     # Vulnerability detectors
+│   │       ├── vulnerability-detector.js  # Detector coordinator
+│   │       ├── sqli-detector.js          # SQL Injection
+│   │       ├── xss-detector.js           # Cross-Site Scripting
+│   │       ├── ssrf-detector.js          # Server-Side Request Forgery
+│   │       ├── xxe-detector.js           # XML External Entity
+│   │       ├── ssti-detector.js          # Server-Side Template Injection
+│   │       ├── command-injection-detector.js
+│   │       ├── lfi-detector.js           # Local File Inclusion
+│   │       ├── open-redirect-detector.js
+│   │       ├── idor-detector.js          # Insecure Direct Object Reference
+│   │       ├── csrf-detector.js          # Cross-Site Request Forgery
+│   │       ├── security-headers-detector.js
+│   │       ├── cors-detector.js          # CORS Misconfiguration
+│   │       └── race-condition-detector.js
+│   ├── ai/                                # AI/ML engines
+│   │   ├── ai-analyzer.js                # AI-powered analysis
+│   │   └── ml-engine.js                  # TensorFlow.js ML engine
+│   ├── database/                          # Database layer
+│   │   └── db.js                         # SQLite operations
+│   └── reporting/                         # Report generation
+│       └── report-generator.js           # JSON/HTML/TXT reports
+│
+├── DOCUMENTATION
+│   ├── START-HERE.md                     # Quick overview (start here!)
+│   ├── QUICKSTART.md                     # Quick start guide
+│   ├── README-KADEDEE.md                 # Complete documentation
+│   ├── KADEDEE-SUMMARY.md                # Technical summary
+│   ├── PROJECT-STATUS.md                 # Build status & features
+│   └── FILE-LIST.txt                     # This file
+│
+├── INSTALLATION
+│   ├── INSTALL.sh                        # Installation script
+│   ├── cli-package.json                  # Dependencies list
+│   └── test-structure.sh                 # Structure verification
+│
+└── OUTPUT (Created during scanning)
+    ├── kadedee-reports/                  # Scan reports
+    │   ├── report.json                   # JSON report
+    │   ├── report.html                   # HTML report
+    │   ├── report.txt                    # Text report
+    │   └── screenshots/                  # Vulnerability screenshots
+    ├── kadedee-data/                     # Database
+    │   └── kadedee.db                    # SQLite database
+    └── kadedee-models/                   # ML models
+        ├── model.json                    # TensorFlow model
+        ├── weights.bin                   # Neural network weights
+        └── patterns.json                 # Learned patterns
+
+TOTAL FILES
+-----------
+JavaScript Modules: 22
+Documentation Files: 6
+Configuration Files: 3
+Total: 31 files
+Lines of Code: ~2,568
+
+MAIN COMPONENTS
+--------------
+1. CLI Interface (1 file)
+2. Scanner Engine (4 files)
+3. Vulnerability Detectors (13 files)
+4. AI/ML Engine (2 files)
+5. Database Layer (1 file)
+6. Reporting System (1 file)
+
+KEY FEATURES
+-----------
+✓ 13 vulnerability types detected
+✓ Advanced web crawler with API discovery
+✓ Screenshot evidence capture
+✓ AI-powered analysis & risk scoring
+✓ Machine learning pattern recognition
+✓ Self-learning capability
+✓ SQLite database for history
+✓ 3 report formats (JSON/HTML/TXT)
+✓ Beautiful CLI with progress indicators
+✓ Detailed reproduction steps
+✓ cURL commands for verification
+
+INSTALLATION
+-----------
+Run: ./INSTALL.sh
+
+USAGE
+-----
+node cli/index.js scan <url> [options]
+
+For help:
+node cli/index.js --help
+
+DOCUMENTATION ORDER
+------------------
+1. START-HERE.md (overview)
+2. QUICKSTART.md (installation & first scan)
+3. README-KADEDEE.md (complete guide)
+4. KADEDEE-SUMMARY.md (technical details)
+5. PROJECT-STATUS.md (feature checklist)
+
+VERSION: 1.0.0
+STATUS: Production Ready
